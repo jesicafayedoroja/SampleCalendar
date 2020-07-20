@@ -6,11 +6,17 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { DatePipe } from '@angular/common';
+
+
+import { CalendarModalComponent } from '../components/calendar-modal/calendar-modal.component';
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    CalendarModalComponent
   ],
   imports: [
     BrowserModule,
@@ -19,11 +25,13 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    CalendarModalComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    DatePipe,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

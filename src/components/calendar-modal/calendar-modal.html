@@ -1,0 +1,37 @@
+<ion-header>
+</ion-header>
+
+<ion-content padding>
+  <div class="calendar__navs">
+    <div class="calendar__month-nav">
+      <button class="calendar__nav-btn" (click)="prevMonth()">&lt;</button>
+      <ion-item> 
+      <ion-label>{{currentDate | date:'MMMM'}}</ion-label>   
+        <ion-select [(ngModel)]="currentYear"  okText="Select" cancelText="Cancel" (ionChange)="changeYear($event)"> 
+          <ion-option *ngFor="let year of yearArray" value="{{year}}">{{year}}</ion-option>
+        </ion-select> 
+       </ion-item>
+      <button class="calendar__nav-btn" (click)="nextMonth()">&gt;</button>
+    </div>
+  </div>
+  <div class="calendar__month">
+    <div class="calendar__day-names">
+      <div class="calendar__day-name" *ngFor="let name of namesOfDays">{{name}}</div>
+    </div>
+    <div class="calendar__weeks">
+      <div class="calendar__week" *ngFor="let week of weeks">
+        <ng-container *ngFor="let day of week">
+          <div class="calendar__date"
+                [ngClass]="{'today': day.today, 'selected': day.selected}"
+                (click)="selectDate(day)">
+            <span class="calendar__number">{{day.mDate.getDate()}}</span>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <button ion-button color='light' size='small' shape='round' (click)='dismiss()'><span>CLOSE</span></button>
+  </div>
+</ion-content>

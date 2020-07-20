@@ -1,14 +1,16 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Custom Calendar
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v3">docs</a> will be your guide.
-  </p>
+  <ion-item> <ion-label>Minimum Date:</ion-label> <ion-input type="date" (click)="clear()" [(ngModel)]="minDate" name="title"></ion-input> <button (click)="clearSearch()">Clear</button></ion-item>
+  <ion-item> <ion-label>Maximum Date:</ion-label> <ion-input type="date" (click)="clear()" [(ngModel)]="maxDate" name="title"></ion-input> <button (click)="clearSearch()">Clear</button></ion-item>
+  <ion-item> <button  ion-button color='dark' center (click)='openModal()'>Open Calendar</button></ion-item>
+  <ion-item> Selected Date: {{dateFromModal}}</ion-item>
+  <div> {{errorMessage}}</div>
+ 
 </ion-content>
